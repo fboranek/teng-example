@@ -58,8 +58,7 @@ BOOST_AUTO_TEST_CASE(test_include_warning)
         result_2);
     BOOST_REQUIRE_EQUAL(err.count(), 1);
     BOOST_CHECK_EQUAL(err.getEntries().front().getLogLine(),
-                      createAbsPath("templates", "common-head.html")
-                          + "(2,37) Warning: Runtime: Variable '.title' is undefined\n");
+                      "common-head.html(2,37) Warning: Runtime: Variable '.title' is undefined\n");
 }
 
 BOOST_AUTO_TEST_CASE(test_include_missing)
@@ -77,7 +76,7 @@ BOOST_AUTO_TEST_CASE(test_include_missing)
                       "(no file)(1,41) Error: Cannot open input file '" + absPath
                           + "' (No such file or directory)\n");
     BOOST_CHECK_EQUAL(err.getEntries()[1].getLogLine(),
-                      absPath + "(1,0) Error: Cannot stat file '" + absPath
+                      "common-head.html(1,0) Error: Cannot stat file '" + absPath
                           + "' (No such file or directory)\n");
 }
 
@@ -124,8 +123,8 @@ BOOST_AUTO_TEST_CASE(test_inner_include_warning)
     Teng::Teng_t teng("templates", 0);
     Teng::Error_t err;
 
-    const std::string filename1 = createAbsPath("templates", "common-head.html");
-    const std::string filename2 = createAbsPath("templates", "subdir/paragraph.html");
+    const std::string filename1 = "common-head.html";
+    const std::string filename2 = "subdir/paragraph.html";
 
     BOOST_CHECK_EQUAL(
         generate(teng, "<?teng include file=\"page.html\" ?>", *createFragment(), err), result_4);

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string>
 #include <teng.h>
+#include <tengfilesystem.h>
 
 inline auto createFragment()
 {

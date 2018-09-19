@@ -5,3 +5,8 @@ add_test(
     NAME teng_base_test
     COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/teng_base.py
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
+ add_test(
+    NAME teng_filesystem_test
+    COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/teng_filesystem.py
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
